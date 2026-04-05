@@ -15,12 +15,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 bash install.sh
 ```
 
-Both scripts install: Neovim, Git, Node.js, ripgrep, fd, cmake, lazygit, tree-sitter-cli, and JetBrainsMono Nerd Font.
-
-After running the script, copy (or symlink) this config:
-
-**Windows:** `%LOCALAPPDATA%\nvim\`
-**macOS:** `~/.config/nvim/`
+Both scripts install: Neovim, Git, Node.js, ripgrep, fd, cmake, lazygit, tree-sitter-cli, and JetBrainsMono Nerd Font. They also clone this config to the correct Neovim config directory automatically.
 
 Then open Neovim — lazy.nvim bootstraps itself and installs all plugins on first launch.
 
