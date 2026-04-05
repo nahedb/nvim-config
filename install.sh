@@ -63,10 +63,8 @@ if [ -d "$NVIM_CONFIG" ]; then
     warn "Neovim config directory already exists at $NVIM_CONFIG"
     warn "Skipping clone. Delete the directory first if you want a fresh install."
 else
-    # Replace the URL below with your own dotfiles repo if you have one.
-    # git clone https://github.com/YOUR_USERNAME/nvim-config.git "$NVIM_CONFIG"
-    warn "No config cloned — copy your lua/ and init.lua into $NVIM_CONFIG manually,"
-    warn "or uncomment and update the git clone line above."
+    git clone https://github.com/nahedb/nvim-config.git "$NVIM_CONFIG"
+    ok "Config cloned to $NVIM_CONFIG"
 fi
 
 # ── Done ──────────────────────────────────────────────────────────────────────

@@ -10,6 +10,7 @@
 | Key | Action |
 |-----|--------|
 | `<leader>e` | Toggle file explorer open/close |
+| `<leader>o` | Focus file explorer (from any buffer) |
 | `<Ctrl-h/j/k/l>` | Move focus **out** of explorer into editor (or between any windows) |
 | `<Enter>` | Open file under cursor |
 | `a` | Create new file (type name, include `/` at end for directory) |
