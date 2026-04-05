@@ -262,5 +262,5 @@ To **change catppuccin flavour**: change `flavour = "mocha"` in colorscheme.lua 
 | `:MasonUpdate` | Update Mason registry |
 
 ### Installed via Mason
-`lua_ls` · `ts_ls` · `html` · `cssls` · `jsonls` · `omnisharp` · `yamlls` · `marksman`
-`stylua` · `prettier` · `eslint_d`
+`lua_ls` · `ts_ls` · `html` · `cssls` · `jsonls` · `omnisharp` · `yamlls` · `marksman` · `terraformls`
+`stylua` · `prettier` · `eslint_d` · `terraform_fmt`

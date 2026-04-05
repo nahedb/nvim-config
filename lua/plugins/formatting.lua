@@ -25,6 +25,8 @@ return {
         json = { "prettier" },
         yaml = { "prettier" },
         markdown = { "prettier" },
+        terraform = { "terraform_fmt" },
+        tf = { "terraform_fmt" },
       },
       format_on_save = {
         timeout_ms = 500,

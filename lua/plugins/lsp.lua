@@ -15,14 +15,15 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     opts = {
       ensure_installed = {
-        "lua_ls",    -- Lua
-        "ts_ls",     -- TypeScript / JavaScript
-        "html",      -- HTML
-        "cssls",     -- CSS
-        "jsonls",    -- JSON
-        "omnisharp", -- C# / .NET
-        "yamlls",    -- YAML
-        "marksman",  -- Markdown
+        "lua_ls",       -- Lua
+        "ts_ls",        -- TypeScript / JavaScript
+        "html",         -- HTML
+        "cssls",        -- CSS
+        "jsonls",       -- JSON
+        "omnisharp",    -- C# / .NET
+        "yamlls",       -- YAML
+        "marksman",     -- Markdown
+        "terraformls",  -- Terraform
       },
       automatic_installation = true,
     },
@@ -87,7 +88,7 @@ return {
       -- Enable all servers (nvim-lspconfig provides their cmd/filetypes)
       vim.lsp.enable({
         "lua_ls", "ts_ls", "html", "cssls", "jsonls",
-        "omnisharp", "yamlls", "marksman",
+        "omnisharp", "yamlls", "marksman", "terraformls",
       })
 
       -- Diagnostic signs
