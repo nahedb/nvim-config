@@ -25,6 +25,8 @@ return {
         "marksman",     -- Markdown
         "terraformls",  -- Terraform
         "graphql",      -- GraphQL
+        "dockerls",     -- Dockerfile
+        "docker_compose_language_service", -- docker-compose
       },
       automatic_installation = true,
     },
@@ -90,6 +92,7 @@ return {
       vim.lsp.enable({
         "lua_ls", "ts_ls", "html", "cssls", "jsonls",
         "omnisharp", "yamlls", "marksman", "terraformls", "graphql",
+        "dockerls", "docker_compose_language_service",
       })
 
       -- Diagnostic signs
