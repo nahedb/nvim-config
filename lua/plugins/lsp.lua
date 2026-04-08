@@ -24,6 +24,7 @@ return {
         "yamlls",       -- YAML
         "marksman",     -- Markdown
         "terraformls",  -- Terraform
+        "graphql",      -- GraphQL
       },
       automatic_installation = true,
     },
@@ -88,7 +89,7 @@ return {
       -- Enable all servers (nvim-lspconfig provides their cmd/filetypes)
       vim.lsp.enable({
         "lua_ls", "ts_ls", "html", "cssls", "jsonls",
-        "omnisharp", "yamlls", "marksman", "terraformls",
+        "omnisharp", "yamlls", "marksman", "terraformls", "graphql",
       })
 
       -- Diagnostic signs
