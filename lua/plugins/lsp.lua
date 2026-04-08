@@ -36,7 +36,7 @@ return {
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
-      "hrsh7th/cmp-nvim-lsp",
+      "saghen/blink.cmp",
     },
     config = function()
       -- Keymaps set on attach via autocommand
@@ -63,7 +63,7 @@ return {
 
       -- Apply capabilities to all servers globally
       vim.lsp.config("*", {
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+        capabilities = require("blink.cmp").get_lsp_capabilities(),
       })
 
       -- Server-specific overrides
