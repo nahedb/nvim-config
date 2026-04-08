@@ -25,6 +25,7 @@ return {
         json = { "prettier" },
         yaml = { "prettier" },
         markdown = { "prettier" },
+        graphql = { "prettier" },
         terraform = { "terraform_fmt" },
         tf = { "terraform_fmt" },
       },
