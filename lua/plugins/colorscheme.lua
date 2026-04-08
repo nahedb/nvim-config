@@ -1,20 +1,9 @@
 return {
-  -- Everforest (green, easy on eyes) — active default
-  {
-    "sainnhe/everforest",
-    priority = 1001,
-    config = function()
-      vim.g.everforest_background = "hard" -- hard / medium / soft
-      vim.g.everforest_better_performance = 1
-      vim.cmd.colorscheme("everforest")
-    end,
-  },
-
-  -- Catppuccin (mocha=dark, macchiato=darker, frappe=medium, latte=light)
+  -- Catppuccin (mocha=dark, macchiato=darker, frappe=medium, latte=light) — active default
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1000,
+    priority = 1001,
     opts = {
       flavour = "mocha",
       integrations = {
@@ -23,9 +12,10 @@ return {
         telescope = { enabled = true },
         treesitter = true,
         which_key = true,
-        cmp = true,
+        blink_cmp = true,
         mason = true,
         indent_blankline = { enabled = true },
+        trouble = true,
         native_lsp = {
           enabled = true,
           underlines = {
@@ -39,7 +29,18 @@ return {
     },
     config = function(_, opts)
       require("catppuccin").setup(opts)
+      vim.cmd.colorscheme("catppuccin-mocha")
     end,
+  },
+
+  -- Everforest (green, easy on eyes) — :colorscheme everforest
+  {
+    "sainnhe/everforest",
+    priority = 1000,
+    opts = {
+      everforest_background = "hard",
+      everforest_better_performance = 1,
+    },
   },
 
   -- Tokyo Night (dark, vibrant purple/blue) — :colorscheme tokyonight / tokyonight-night / tokyonight-storm / tokyonight-day / tokyonight-moon

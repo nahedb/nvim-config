@@ -5,6 +5,7 @@ local map = vim.keymap.set
 
 -- Clear search highlights
 map("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+map("n", "<Esc>", ":nohl<CR>", { desc = "Clear highlights" })
 
 -- Window navigation
 map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
@@ -60,6 +61,16 @@ map("n", "K", vim.lsp.buf.hover, { desc = "Hover docs" })
 map("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 map("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+map("n", "<leader>dc", function()
+  local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+  if #diagnostics == 0 then
+    vim.notify("No diagnostic at cursor", vim.log.levels.WARN)
+    return
+  end
+  local msg = diagnostics[1].message
+  vim.fn.setreg("+", msg)
+  vim.notify("Copied: " .. msg, vim.log.levels.INFO)
+end, { desc = "Copy diagnostic to clipboard" })
 
 -- Git
 map("n", "<leader>gs", "<cmd>Telescope git_status<CR>", { desc = "Git status" })

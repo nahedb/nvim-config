@@ -40,6 +40,16 @@ return {
     },
   },
 
+  -- Find and replace across files
+  {
+    "MagicDimsum/grug-far.nvim",
+    opts = { headerMaxWidth = 80 },
+    keys = {
+      { "<leader>sr", "<cmd>GrugFar<CR>", desc = "Search & replace (grug-far)" },
+      { "<leader>sw", function() require("grug-far").open({ prefills = { search = vim.fn.expand("<cword>") } }) end, desc = "Search word under cursor" },
+    },
+  },
+
   -- Highlight todo/fixme/hack/etc comments
   {
     "folke/todo-comments.nvim",
