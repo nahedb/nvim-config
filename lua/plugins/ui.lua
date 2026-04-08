@@ -51,6 +51,40 @@ return {
     opts = {
       close_if_last_window = true,
       window = { width = 30 },
+      sources = { "filesystem", "buffers", "git_status", "diagnostics" },
+      source_selector = {
+        winbar = false,
+      },
+      diagnostics = {
+        auto_preview = { enabled = false },
+        bind_to_cwd = true,
+        diag_sort_function = "severity",
+        follow_behavior = {
+          always_focus_file = false,
+          expand_followed = true,
+          collapse_others = true,
+        },
+        follow_current_file = true,
+        group_dirs_and_files = true,
+        group_empty_dirs = true,
+        show_unloaded = true,
+      },
+      default_component_configs = {
+        diagnostics = {
+          symbols = {
+            hint = "󰠠 ",
+            info = " ",
+            warn = " ",
+            error = " ",
+          },
+          highlights = {
+            hint  = "DiagnosticSignHint",
+            info  = "DiagnosticSignInfo",
+            warn  = "DiagnosticSignWarn",
+            error = "DiagnosticSignError",
+          },
+        },
+      },
       filesystem = {
         filtered_items = {
           hide_dotfiles = false,
