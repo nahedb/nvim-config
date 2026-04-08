@@ -72,17 +72,12 @@ return {
       default_component_configs = {
         diagnostics = {
           symbols = {
-            hint = "󰠠 ",
-            info = " ",
-            warn = " ",
-            error = " ",
+            error = "✘",
+            warn  = "▲",
+            info  = "ℹ",
+            hint  = "⚡",
           },
-          highlights = {
-            hint  = "DiagnosticSignHint",
-            info  = "DiagnosticSignInfo",
-            warn  = "DiagnosticSignWarn",
-            error = "DiagnosticSignError",
-          },
+          -- no highlights override: neo-tree uses DiagnosticError/Warn/Info/Hint natively
         },
       },
       filesystem = {
