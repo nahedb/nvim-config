@@ -42,7 +42,7 @@ return {
 
   -- Find and replace across files
   {
-    "MagicDimsum/grug-far.nvim",
+    "MagicDuck/grug-far.nvim",
     opts = { headerMaxWidth = 80 },
     keys = {
       { "<leader>sr", "<cmd>GrugFar<CR>", desc = "Search & replace (grug-far)" },
