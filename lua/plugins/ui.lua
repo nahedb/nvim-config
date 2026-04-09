@@ -91,7 +91,9 @@ return {
       spec = {
         { "<leader>f", group = "Find/Telescope" },
         { "<leader>g", group = "Git" },
+        { "<leader>h", group = "Hunk" },
         { "<leader>b", group = "Buffer" },
+        { "<leader>l", group = "LSP" },
         { "<leader>n", group = "No..." },
         { "<leader>x", group = "Trouble/Diagnostics" },
         { "<leader>t", group = "Terminal" },

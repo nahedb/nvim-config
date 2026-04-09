@@ -42,6 +42,9 @@ return {
       "saghen/blink.cmp",
     },
     config = function()
+      -- Ensure lspconfig server definitions (cmd, filetypes, root_dir) are loaded
+      require("lspconfig")
+
       -- Keymaps set on attach via autocommand
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
@@ -57,7 +60,7 @@ return {
           map("K", vim.lsp.buf.hover, "Hover docs")
           map("<leader>rn", vim.lsp.buf.rename, "Rename")
           map("<leader>ca", vim.lsp.buf.code_action, "Code action")
-          map("<leader>f", function() vim.lsp.buf.format({ async = true }) end, "Format file")
+          map("<leader>lf", function() vim.lsp.buf.format({ async = true }) end, "Format file (LSP)")
           map("[d", vim.diagnostic.goto_prev, "Prev diagnostic")
           map("]d", vim.diagnostic.goto_next, "Next diagnostic")
           map("<leader>d", vim.diagnostic.open_float, "Show diagnostics")
@@ -81,7 +84,6 @@ return {
       })
 
       vim.lsp.config("omnisharp", {
-        cmd = { "omnisharp" },
         settings = {
           FormattingOptions = { EnableEditorConfigSupport = true },
           RoslynExtensionsOptions = { EnableAnalyzersSupport = true },
@@ -95,16 +97,16 @@ return {
         "dockerls", "docker_compose_language_service",
       })
 
-      -- Diagnostic signs
-      local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-      end
-
       vim.diagnostic.config({
         virtual_text = true,
-        signs = true,
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN]  = " ",
+            [vim.diagnostic.severity.HINT]  = "󰠠 ",
+            [vim.diagnostic.severity.INFO]  = " ",
+          },
+        },
         underline = true,
         update_in_insert = false,
         severity_sort = true,
