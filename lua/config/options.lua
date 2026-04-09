@@ -1,3 +1,9 @@
+-- Disable unused providers for faster startup
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+
 local opt = vim.opt
 
 -- Line numbers
@@ -18,6 +24,7 @@ opt.hlsearch = true
 opt.incsearch = true
 
 -- Appearance
+opt.showtabline = 2       -- always show bufferline
 opt.termguicolors = true
 opt.signcolumn = "yes"
 opt.cursorline = true

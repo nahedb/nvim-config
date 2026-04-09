@@ -24,7 +24,10 @@ return {
       },
       completion = {
         documentation = { auto_show = true, auto_show_delay_ms = 200 },
-        menu = { border = "rounded" },
+        menu = { border = "rounded", auto_show = true },
+        list = {
+          selection = { preselect = false, auto_insert = false },
+        },
       },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
