@@ -51,6 +51,16 @@ return {
     opts = {
       close_if_last_window = true,
       window = { width = 30 },
+      default_component_configs = {
+        diagnostics = {
+          symbols = {
+            error = "✘",
+            warn  = "▲",
+            info  = "ℹ",
+            hint  = "⚡",
+          },
+        },
+      },
       filesystem = {
         filtered_items = {
           hide_dotfiles = false,
