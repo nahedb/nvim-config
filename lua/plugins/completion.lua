@@ -26,7 +26,7 @@ return {
         documentation = { auto_show = true, auto_show_delay_ms = 200 },
         menu = { border = "rounded", auto_show = true },
         list = {
-          selection = { preselect = false, auto_insert = false },
+          selection = { preselect = false, auto_insert = true },
         },
       },
       sources = {
