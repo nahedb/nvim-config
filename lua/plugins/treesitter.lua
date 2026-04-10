@@ -11,7 +11,7 @@ return {
         "javascript", "typescript", "tsx", "html", "css", "json",
         "c_sharp", "yaml", "toml", "markdown", "markdown_inline",
         "bash", "regex", "gitignore",
-        "terraform", "dockerfile", "hcl",
+        "terraform", "dockerfile", "hcl", "graphql",
       })
 
       vim.api.nvim_create_autocmd("FileType", {
