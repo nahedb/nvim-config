@@ -26,13 +26,13 @@ return {
         documentation = { auto_show = true, auto_show_delay_ms = 200 },
         menu = { border = "rounded", auto_show = true },
         list = {
-          selection = { preselect = false, auto_insert = false },
+          selection = { preselect = false, auto_insert = true },
         },
       },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
       },
-      fuzzy = { implementation = "prefer_rust_with_warning" },
+      fuzzy = { implementation = "prefer_rust" },
     },
     opts_extend = { "sources.default" },
   },
