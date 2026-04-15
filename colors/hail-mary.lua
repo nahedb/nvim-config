@@ -261,21 +261,38 @@ hi("@operator",            { link = "Operator" })
 hi("@constructor",         { fg = p.nebula })
 
 -- ── LSP semantic tokens ────────────────────────────────────────────────────
-hi("@lsp.type.class",      { link = "Type" })
+-- Types
+hi("@lsp.type.class",          { link = "Type" })
+hi("@lsp.type.type",           { link = "Type" })   -- type aliases: `type Foo = ...`
+hi("@lsp.type.typeParameter",  { link = "Type" })   -- generics: <T>
+hi("@lsp.type.interface",      { fg = p.teal })
+hi("@lsp.type.enum",           { fg = p.nebula })
+hi("@lsp.type.enumMember",     { fg = p.starlight })
+hi("@lsp.type.namespace",      { fg = p.nebula })
+hi("@lsp.type.struct",         { link = "Type" })
+
+-- Functions / methods
 hi("@lsp.type.function",   { link = "Function" })
 hi("@lsp.type.method",     { fg = p.rocky })
-hi("@lsp.type.property",   { fg = p.variable })
-hi("@lsp.type.variable",   { fg = p.variable })
-hi("@lsp.type.parameter",  { fg = p.variable })
-hi("@lsp.type.namespace",  { fg = p.nebula })
-hi("@lsp.type.enum",       { fg = p.nebula })
-hi("@lsp.type.enumMember", { fg = p.starlight })
-hi("@lsp.type.interface",  { fg = p.teal })
+
+-- Variables & parameters — cover base type AND common typemod combos
+-- (typemod groups don't inherit from type groups in Neovim's LSP token system)
+hi("@lsp.type.variable",                    { fg = p.variable })
+hi("@lsp.type.parameter",                   { fg = p.variable })
+hi("@lsp.type.property",                    { fg = p.variable })
+hi("@lsp.typemod.variable.local",           { fg = p.variable })
+hi("@lsp.typemod.variable.declaration",     { fg = p.variable })
+hi("@lsp.typemod.variable.readonly",        { fg = p.variable })
+hi("@lsp.typemod.variable.defaultLibrary",  { fg = p.variable })
+hi("@lsp.typemod.parameter.declaration",    { fg = p.variable })
+hi("@lsp.typemod.property.declaration",     { fg = p.variable })
+
+-- Other
 hi("@lsp.type.keyword",    { link = "Keyword" })
 hi("@lsp.type.string",     { link = "String" })
 hi("@lsp.type.number",     { link = "Number" })
 hi("@lsp.type.operator",   { link = "Operator" })
-hi("@lsp.mod.readonly",    { fg = p.starlight })
+hi("@lsp.mod.readonly",    { fg = p.variable })     -- keep same as variable, not starlight
 hi("@lsp.mod.deprecated",  { fg = p.comment, strikethrough = true })
 
 -- ── Indent blankline ───────────────────────────────────────────────────────
