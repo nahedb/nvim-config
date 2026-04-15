@@ -14,7 +14,7 @@ function M.get(p)
     ["@keyword.exception"]     = { fg = p.grace },               -- coral: throw/try/catch
     ["@keyword.operator"]      = { fg = p.astrophage },          -- amber: new/typeof/instanceof/in
     ["@keyword.import"]        = { fg = p.nebula },              -- purple: import/export/from
-    ["@keyword.modifier"]      = { fg = p.variable },            -- periwinkle: public/private/static/readonly
+    ["@keyword.modifier"]      = { fg = p.astrophage },           -- amber: public/private/static/readonly
     ["@keyword.type"]          = { fg = p.nebula },              -- purple: type/interface/class/enum declaration
 
     -- ── Functions ──────────────────────────────────────────────────────────

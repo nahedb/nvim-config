@@ -1,15 +1,15 @@
 return {
   -- Backgrounds
-  bg       = "#0d0f18",
+  bg       = "#040f18",
   bg1      = "#131520",
   bg2      = "#1a1d2e",
   bg3      = "#20243a",
   border   = "#2a2f4a",
 
   -- Foreground
-  fg       = "#cdd6f4",
+  fg       = "#c6d8f4",
   fg_dim   = "#7c85b0",
-  comment  = "#454c6e",
+  comment  = "#434c4e",
 
   -- Astrophage (amber-orange) — control flow keywords (if/for/while/const/let)
   astrophage     = "#f5962b",
@@ -20,27 +20,27 @@ return {
   rocky_dim = "#1e88e5",
 
   -- Earth (green) — strings
-  earth     = "#a5d6a7",
-  earth_dim = "#66bb6a",
+  earth     = "#c5d5a2",
+  earth_dim = "#7a8a64",
 
   -- Nebula (purple) — function keywords (function/async/await), import/export, decorators
   nebula     = "#ce93d8",
   nebula_dim = "#9c27b0",
 
   -- Stellar (rose-pink) — types, classes, interfaces, structs
-  stellar = "#ff8fab",
+  stellar = "#f87fab",
 
   -- Starlight (bright yellow-gold) — numbers, constants
   starlight = "#f9e070",
 
   -- Grace (vivid coral-red) — return, throw, try/catch
-  grace = "#ff6b72",
+  grace = "#ff6032",
 
   -- Variable (periwinkle blue) — local variables
   variable = "#a8bcd8",
 
   -- Teal — parameters (distinct from periwinkle variables)
-  teal = "#80cbc4",
+  teal = "#9bc4cf",
 
   -- Diagnostics
   error   = "#f38ba8",
