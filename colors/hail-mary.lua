@@ -43,6 +43,9 @@ local p = {
   -- Grace (coral/rose) — return, throw, yield  (trying to get home)
   grace = "#f28b82",
 
+  -- Variable (periwinkle blue) — local vars, parameters
+  variable = "#a8bcd8",
+
   -- Teal — operators
   teal = "#80cbc4",
 
@@ -222,8 +225,8 @@ hi("@comment",             { link = "Comment" })
 hi("@keyword",             { link = "Keyword" })           -- amber: const/let/var + fallback
 hi("@keyword.conditional", { fg = p.astrophage })           -- amber: if/else/switch/case
 hi("@keyword.repeat",      { fg = p.astrophage })           -- amber: for/while/do
-hi("@keyword.function",    { fg = p.rocky, bold = true })   -- cyan:  function/async
-hi("@keyword.coroutine",   { fg = p.rocky })                -- cyan:  await (some parsers)
+hi("@keyword.function",    { fg = p.nebula, bold = true })  -- purple: function/async
+hi("@keyword.coroutine",   { fg = p.nebula })               -- purple: await (some parsers)
 hi("@keyword.return",      { fg = p.grace, bold = true })   -- coral: return
 hi("@keyword.exception",   { fg = p.grace })                -- coral: throw/try/catch
 hi("@keyword.operator",    { fg = p.teal })                 -- teal:  typeof/instanceof/in
@@ -232,10 +235,10 @@ hi("@function",            { link = "Function" })
 hi("@function.builtin",    { fg = p.rocky, italic = true })
 hi("@function.method",     { fg = p.rocky })
 hi("@function.method.call",{ fg = p.rocky })
-hi("@variable",            { fg = p.fg })
+hi("@variable",            { fg = p.variable })
 hi("@variable.builtin",    { fg = p.starlight, italic = true })
-hi("@variable.parameter",  { fg = p.fg })
-hi("@variable.member",     { fg = p.fg })
+hi("@variable.parameter",  { fg = p.variable })
+hi("@variable.member",     { fg = p.variable })
 hi("@string",              { link = "String" })
 hi("@string.escape",       { fg = p.teal })
 hi("@number",              { link = "Number" })
@@ -261,9 +264,9 @@ hi("@constructor",         { fg = p.nebula })
 hi("@lsp.type.class",      { link = "Type" })
 hi("@lsp.type.function",   { link = "Function" })
 hi("@lsp.type.method",     { fg = p.rocky })
-hi("@lsp.type.property",   { fg = p.fg })
-hi("@lsp.type.variable",   { fg = p.fg })
-hi("@lsp.type.parameter",  { fg = p.fg })
+hi("@lsp.type.property",   { fg = p.variable })
+hi("@lsp.type.variable",   { fg = p.variable })
+hi("@lsp.type.parameter",  { fg = p.variable })
 hi("@lsp.type.namespace",  { fg = p.nebula })
 hi("@lsp.type.enum",       { fg = p.nebula })
 hi("@lsp.type.enumMember", { fg = p.starlight })
