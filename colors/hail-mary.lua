@@ -229,7 +229,7 @@ hi("@keyword.function",    { fg = p.nebula, bold = true })  -- purple: function/
 hi("@keyword.coroutine",   { fg = p.nebula })               -- purple: await (some parsers)
 hi("@keyword.return",      { fg = p.grace, bold = true })   -- coral: return
 hi("@keyword.exception",   { fg = p.grace })                -- coral: throw/try/catch
-hi("@keyword.operator",    { fg = p.teal })                 -- teal:  typeof/instanceof/in
+hi("@keyword.operator",    { fg = p.astrophage })            -- amber: new/typeof/instanceof/in
 hi("@keyword.import",      { fg = p.nebula })               -- purple: import/export/from
 hi("@function",            { link = "Function" })
 hi("@function.builtin",    { fg = p.rocky, italic = true })
@@ -247,7 +247,7 @@ hi("@boolean",             { link = "Boolean" })
 hi("@constant",            { fg = p.starlight })
 hi("@constant.builtin",    { fg = p.starlight, bold = true })
 hi("@type",                { fg = p.teal })
-hi("@type.builtin",        { fg = p.teal, italic = true })
+hi("@type.builtin",        { fg = p.astrophage, italic = true })
 hi("@namespace",           { fg = p.nebula })
 hi("@module",              { fg = p.nebula })
 hi("@property",            { fg = p.fg })
