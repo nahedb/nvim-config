@@ -3,23 +3,47 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons", "catppuccin/nvim" },
-    opts = {
-      options = {
-        theme = "catppuccin-mocha",
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
-        globalstatus = true,
-      },
-      sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = { { "filename", path = 1 } },
-        lualine_x = { "encoding", "fileformat", "filetype" },
-        lualine_y = { "progress" },
-        lualine_z = { "location" },
-      },
-    },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- hail-mary palette (exposed via vim.g after colorscheme loads)
+      local p = vim.g.hail_mary_palette or {}
+      local bg       = p.bg        or "#0d0f18"
+      local bg1      = p.bg1       or "#131520"
+      local bg2      = p.bg2       or "#1a1d2e"
+      local fg       = p.fg        or "#cdd6f4"
+      local fg_dim   = p.fg_dim    or "#7c85b0"
+      local amber    = p.astrophage or "#f7b731"
+      local cyan     = p.rocky     or "#4fc3f7"
+      local purple   = p.nebula    or "#ce93d8"
+      local green    = p.earth     or "#a5d6a7"
+      local red      = p.error     or "#f38ba8"
+
+      local theme = {
+        normal   = { a = { fg = bg, bg = amber,  gui = "bold" }, b = { fg = fg,     bg = bg2 }, c = { fg = fg_dim, bg = bg1 } },
+        insert   = { a = { fg = bg, bg = cyan,   gui = "bold" }, b = { fg = fg,     bg = bg2 }, c = { fg = fg_dim, bg = bg1 } },
+        visual   = { a = { fg = bg, bg = purple, gui = "bold" }, b = { fg = fg,     bg = bg2 }, c = { fg = fg_dim, bg = bg1 } },
+        replace  = { a = { fg = bg, bg = red,    gui = "bold" }, b = { fg = fg,     bg = bg2 }, c = { fg = fg_dim, bg = bg1 } },
+        command  = { a = { fg = bg, bg = green,  gui = "bold" }, b = { fg = fg,     bg = bg2 }, c = { fg = fg_dim, bg = bg1 } },
+        inactive = { a = { fg = fg_dim, bg = bg1 },              b = { fg = fg_dim, bg = bg  }, c = { fg = fg_dim, bg = bg  } },
+      }
+
+      require("lualine").setup({
+        options = {
+          theme = theme,
+          component_separators = { left = "", right = "" },
+          section_separators = { left = "", right = "" },
+          globalstatus = true,
+        },
+        sections = {
+          lualine_a = { "mode" },
+          lualine_b = { "branch", "diff", "diagnostics" },
+          lualine_c = { { "filename", path = 1 } },
+          lualine_x = { "encoding", "fileformat", "filetype" },
+          lualine_y = { "progress" },
+          lualine_z = { "location" },
+        },
+      })
+    end,
   },
 
   -- Buffer tabs
@@ -142,12 +166,17 @@ return {
       config = {
         header = {
           "",
-          "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗  ",
-          "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║  ",
-          "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║  ",
-          "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║  ",
-          "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║  ",
-          "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝  ",
+          "   ·   *   ·   ✦   ·   *   ·   ✦   ·   *   ·   ✦   ·   *   ·   ",
+          "                       P  R  O  J  E  C  T                       ",
+          "",
+          "  ██╗  ██╗ █████╗ ██╗██╗      ███╗   ███╗ █████╗ ██████╗ ██╗   ██╗",
+          "  ██║  ██║██╔══██╗██║██║      ████╗ ████║██╔══██╗██╔══██╗╚██╗ ██╔╝",
+          "  ███████║███████║██║██║      ██╔████╔██║███████║██████╔╝ ╚████╔╝ ",
+          "  ██╔══██║██╔══██║██║██║      ██║╚██╔╝██║██╔══██║██╔══██╗  ╚██╔╝  ",
+          "  ██║  ██║██║  ██║██║███████╗ ██║ ╚═╝ ██║██║  ██║██║  ██║   ██║   ",
+          "  ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝  ",
+          "",
+          "   ·   *   ·   ✦   ·   *   ·   ✦   ·   *   ·   ✦   ·   *   ·   ",
           "",
         },
         center = {
@@ -157,7 +186,11 @@ return {
           { icon = "  ", key = "e", desc = "File explorer", action = "Neotree toggle" },
           { icon = "  ", key = "q", desc = "Quit",          action = "qa" },
         },
-        footer = { "", "Have a productive session!" },
+        footer = {
+          "",
+          "  ★  Rocky say: \"It's time go.\"  ★",
+          "",
+        },
       },
     },
   },

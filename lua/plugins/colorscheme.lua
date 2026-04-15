@@ -29,7 +29,17 @@ return {
     },
     config = function(_, opts)
       require("catppuccin").setup(opts)
-      vim.cmd.colorscheme("catppuccin-mocha")
+      -- catppuccin available via :colorscheme catppuccin-*
+    end,
+  },
+
+  -- Project Hail Mary (custom) — deep space + Astrophage amber + Rocky cyan
+  {
+    name = "hail-mary",
+    dir = vim.fn.stdpath("config"),  -- not a plugin; just triggers colorscheme load
+    priority = 1002,
+    config = function()
+      vim.cmd.colorscheme("hail-mary")
     end,
   },
 
