@@ -210,6 +210,7 @@ To **change catppuccin flavour**: change `flavour = "mocha"` in colorscheme.lua 
 
 | Colorscheme command | Description |
 |---------------------|-------------|
+| `hail-mary` | Deep space + Astrophage amber + Rocky cyan — **current default** |
 | `catppuccin` | Dark, pastel |
 | `catppuccin-mocha` | Dark variant |
 | `catppuccin-macchiato` | Slightly darker |
@@ -241,7 +242,7 @@ To **change catppuccin flavour**: change `flavour = "mocha"` in colorscheme.lua 
 | `onedark_vivid` | Brighter One Dark |
 | `onedark_dark` | Darker One Dark |
 | `nord` | Icy blue, minimal |
-| `everforest` | Muted green, easy on eyes — **current default** |
+| `everforest` | Muted green, easy on eyes |
 | `ayu-dark` | Clean warm amber dark |
 | `ayu-mirage` | Softer dark amber |
 | `ayu-light` | Light amber |

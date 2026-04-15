@@ -88,6 +88,12 @@ return {
           FormattingOptions = { EnableEditorConfigSupport = true },
           RoslynExtensionsOptions = { EnableAnalyzersSupport = true },
         },
+        -- OmniSharp's semantic tokens arrive seconds after the buffer opens and
+        -- override treesitter in inconsistent ways. Disabling them lets treesitter
+        -- handle C# highlighting cleanly and immediately.
+        on_attach = function(client)
+          client.server_capabilities.semanticTokensProvider = nil
+        end,
       })
 
       -- Enable all servers (nvim-lspconfig provides their cmd/filetypes)

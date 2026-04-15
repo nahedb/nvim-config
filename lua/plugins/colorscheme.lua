@@ -1,9 +1,9 @@
 return {
-  -- Catppuccin (mocha=dark, macchiato=darker, frappe=medium, latte=light) — active default
+  -- Catppuccin — :colorscheme catppuccin-mocha / catppuccin-macchiato / catppuccin-frappe / catppuccin-latte
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1001,
+    lazy = true,
     opts = {
       flavour = "mocha",
       integrations = {
@@ -29,61 +29,53 @@ return {
     },
     config = function(_, opts)
       require("catppuccin").setup(opts)
-      vim.cmd.colorscheme("catppuccin-mocha")
+      -- catppuccin available via :colorscheme catppuccin-*
     end,
   },
 
-  -- Everforest (green, easy on eyes) — :colorscheme everforest
-  {
-    "sainnhe/everforest",
-    priority = 1000,
-    opts = {
-      everforest_background = "hard",
-      everforest_better_performance = 1,
-    },
-  },
+  -- ── Lazy-loaded extras (available via :colorscheme <name>) ──────────────
+  -- lazy = true prevents auto-load/setup at startup, which stops themes that
+  -- call vim.cmd.colorscheme() in their setup() from stomping hail-mary.
 
-  -- Tokyo Night (dark, vibrant purple/blue) — :colorscheme tokyonight / tokyonight-night / tokyonight-storm / tokyonight-day / tokyonight-moon
-  { "folke/tokyonight.nvim", priority = 1000, opts = {} },
+  -- Everforest — :colorscheme everforest
+  { "sainnhe/everforest", lazy = true },
 
-  -- Rose Pine (warm, muted) — :colorscheme rose-pine / rose-pine-moon / rose-pine-dawn
-  { "rose-pine/neovim", name = "rose-pine", priority = 1000, opts = {} },
+  -- Tokyo Night — :colorscheme tokyonight / tokyonight-night / tokyonight-storm / tokyonight-moon
+  { "folke/tokyonight.nvim", lazy = true },
 
-  -- Kanagawa (dark, Japanese ink painting) — :colorscheme kanagawa / kanagawa-wave / kanagawa-dragon / kanagawa-lotus
-  { "rebelot/kanagawa.nvim", priority = 1000, opts = {} },
+  -- Rose Pine — :colorscheme rose-pine / rose-pine-moon / rose-pine-dawn
+  { "rose-pine/neovim", name = "rose-pine", lazy = true },
 
-  -- Gruvbox Material (warm, earthy tones) — :colorscheme gruvbox-material
-  { "sainnhe/gruvbox-material", priority = 1000 },
+  -- Kanagawa — :colorscheme kanagawa / kanagawa-wave / kanagawa-dragon / kanagawa-lotus
+  { "rebelot/kanagawa.nvim", lazy = true },
 
-  -- Nightfox family (cool, polished) — :colorscheme nightfox / dayfox / dawnfox / duskfox / nordfox / terafox / carbonfox
-  { "EdenEast/nightfox.nvim", priority = 1000, opts = {} },
+  -- Gruvbox Material — :colorscheme gruvbox-material
+  { "sainnhe/gruvbox-material", lazy = true },
 
-  -- Dracula (classic dark purple) — :colorscheme dracula
-  { "Mofiqul/dracula.nvim", priority = 1000 },
+  -- Nightfox family — :colorscheme nightfox / dayfox / dawnfox / duskfox / nordfox / terafox / carbonfox
+  { "EdenEast/nightfox.nvim", lazy = true },
 
-  -- One Dark Pro (VS Code One Dark) — :colorscheme onedarkpro / onedark / onelight / onedark_vivid / onedark_dark
-  { "olimorris/onedarkpro.nvim", priority = 1000, opts = {} },
+  -- Dracula — :colorscheme dracula
+  { "Mofiqul/dracula.nvim", lazy = true },
 
-  -- Nord (icy blue, minimal) — :colorscheme nord
-  { "shaunsingh/nord.nvim", priority = 1000 },
+  -- One Dark Pro — :colorscheme onedark / onelight / onedark_vivid / onedark_dark
+  { "olimorris/onedarkpro.nvim", lazy = true },
 
+  -- Nord — :colorscheme nord
+  { "shaunsingh/nord.nvim", lazy = true },
 
-  -- Ayu (clean, warm amber) — :colorscheme ayu-dark / ayu-mirage / ayu-light
-  { "Shatur/neovim-ayu", priority = 1000 },
+  -- Ayu — :colorscheme ayu-dark / ayu-mirage / ayu-light
+  { "Shatur/neovim-ayu", lazy = true },
 
-  -- Material (Google Material) — :colorscheme material (set style in opts)
-  {
-    "marko-cerovac/material.nvim",
-    priority = 1000,
-    opts = { style = "oceanic" }, -- oceanic / deep ocean / palenight / lighter / darker
-  },
+  -- Material — :colorscheme material
+  { "marko-cerovac/material.nvim", lazy = true },
 
-  -- Moonfly (dark, blue-tinted) — :colorscheme moonfly
-  { "bluz71/vim-moonfly-colors", name = "moonfly", priority = 1000 },
+  -- Moonfly — :colorscheme moonfly
+  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = true },
 
-  -- Nightfly (deep blue) — :colorscheme nightfly
-  { "bluz71/vim-nightfly-colors", name = "nightfly", priority = 1000 },
+  -- Nightfly — :colorscheme nightfly
+  { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = true },
 
-  -- Solarized Osaka (modern solarized) — :colorscheme solarized-osaka / solarized-osaka-night / solarized-osaka-storm / solarized-osaka-day
-  { "craftzdog/solarized-osaka.nvim", priority = 1000, opts = {} },
+  -- Solarized Osaka — :colorscheme solarized-osaka / solarized-osaka-night / solarized-osaka-storm
+  { "craftzdog/solarized-osaka.nvim", lazy = true },
 }

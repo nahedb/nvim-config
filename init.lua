@@ -16,6 +16,9 @@ require("config.options")
 require("config.keymaps")
 require("config.autocmds")
 
+-- Load colorscheme before plugins so there's no flash on startup
+vim.cmd.colorscheme("hail-mary")
+
 require("lazy").setup("plugins", {
   change_detection = { notify = false },
   rocks = { enabled = false },
