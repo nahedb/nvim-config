@@ -231,6 +231,8 @@ hi("@keyword.return",      { fg = p.grace, bold = true })   -- coral: return
 hi("@keyword.exception",   { fg = p.grace })                -- coral: throw/try/catch
 hi("@keyword.operator",    { fg = p.astrophage })            -- amber: new/typeof/instanceof/in
 hi("@keyword.import",      { fg = p.nebula })               -- purple: import/export/from
+hi("@keyword.modifier",    { fg = p.variable })             -- periwinkle: public/private/static/readonly (quieter than control flow)
+hi("@keyword.type",        { fg = p.nebula })               -- purple: type/interface/class/enum as declaration head
 hi("@function",            { link = "Function" })
 hi("@function.builtin",    { fg = p.rocky, italic = true })
 hi("@function.method",     { fg = p.rocky })
@@ -250,7 +252,10 @@ hi("@type",                { fg = p.teal })
 hi("@type.builtin",        { fg = p.astrophage, italic = true })
 hi("@namespace",           { fg = p.nebula })
 hi("@module",              { fg = p.nebula })
-hi("@property",            { fg = p.fg })
+hi("@property",            { fg = p.variable })            -- align with @variable.member
+hi("@attribute",           { fg = p.nebula, italic = true }) -- decorators: @Injectable(), @Component()
+hi("@attribute.builtin",   { fg = p.nebula, italic = true })
+hi("@comment.documentation",{ link = "Comment" })
 hi("@punctuation",         { fg = p.fg_dim })
 hi("@punctuation.bracket", { fg = p.fg_dim })
 hi("@punctuation.delimiter",{ fg = p.fg_dim })
@@ -275,27 +280,52 @@ hi("@lsp.type.namespace",      { fg = p.nebula })
 hi("@lsp.type.function",   { link = "Function" })
 hi("@lsp.type.method",     { fg = p.rocky })
 
--- Variables & parameters — cover base type AND common typemod combos
+-- Variables, parameters, fields — cover base type AND common typemod combos
 -- (typemod groups don't inherit from type groups in Neovim's LSP token system)
-hi("@lsp.type.variable",                    { fg = p.variable })
-hi("@lsp.type.parameter",                   { fg = p.variable })
-hi("@lsp.type.property",                    { fg = p.variable })
-hi("@lsp.typemod.variable.local",           { fg = p.variable })
-hi("@lsp.typemod.variable.declaration",     { fg = p.variable })
-hi("@lsp.typemod.variable.readonly",        { fg = p.variable })
-hi("@lsp.typemod.variable.defaultLibrary",  { fg = p.variable })
-hi("@lsp.typemod.parameter.declaration",    { fg = p.variable })
-hi("@lsp.typemod.property.declaration",     { fg = p.variable })
+hi("@lsp.type.variable",                          { fg = p.variable })
+hi("@lsp.type.parameter",                         { fg = p.variable })
+hi("@lsp.type.property",                          { fg = p.variable })
+hi("@lsp.type.field",                             { fg = p.variable })   -- C# class fields
+hi("@lsp.typemod.variable.local",                 { fg = p.variable })
+hi("@lsp.typemod.variable.declaration",           { fg = p.variable })
+hi("@lsp.typemod.variable.readonly",              { fg = p.variable })
+hi("@lsp.typemod.variable.defaultLibrary",        { fg = p.variable })
+hi("@lsp.typemod.variable.readonly.defaultLibrary",{ fg = p.starlight, italic = true }) -- undefined/NaN/Math/console
+hi("@lsp.typemod.parameter.declaration",          { fg = p.variable })
+hi("@lsp.typemod.property.declaration",           { fg = p.variable })
+hi("@lsp.typemod.field.static",                   { fg = p.variable })
+hi("@lsp.typemod.field.readonly",                 { fg = p.variable })
+
+-- Decorators / attributes
+hi("@lsp.type.decorator",        { fg = p.nebula, italic = true }) -- ts_ls: @Injectable(), @Component()
+
+-- C# / OmniSharp-specific tokens
+hi("@lsp.type.event",                { fg = p.nebula })   -- C# events (delegate sinks)
+hi("@lsp.type.label",                { fg = p.astrophage })-- goto/switch labels
+hi("@lsp.type.controlKeyword",       { fg = p.astrophage })-- OmniSharp control flow catch-all
+hi("@lsp.type.operatorOverloaded",   { fg = p.teal })     -- overloaded operator definitions
+hi("@lsp.type.preprocessorKeyword",  { fg = p.nebula })   -- #nullable, #region, #if, #pragma
+
+-- C# XML doc comments (OmniSharp semantic tokens for /// blocks)
+hi("@lsp.type.xmlDocCommentText",                { link = "Comment" })
+hi("@lsp.type.xmlDocCommentDelimiter",           { fg = p.comment })
+hi("@lsp.type.xmlDocCommentName",                { fg = p.teal })
+hi("@lsp.type.xmlDocCommentAttributeName",       { fg = p.astrophage_dim })
+hi("@lsp.type.xmlDocCommentAttributeValue",      { fg = p.earth })
+hi("@lsp.type.xmlDocCommentAttributeQuotes",     { fg = p.fg_dim })
+hi("@lsp.type.xmlDocCommentComment",             { link = "Comment" })
+hi("@lsp.type.xmlDocCommentCDataSection",        { fg = p.earth })
+hi("@lsp.type.xmlDocCommentEntityReference",     { fg = p.teal })
+hi("@lsp.type.xmlDocCommentProcessingInstruction",{ fg = p.nebula })
 
 -- Other
--- @lsp.type.keyword intentionally not defined — OmniSharp (C#) sends all
--- keywords under one flat type, which would collapse return/async/using etc.
--- to amber. Leaving it undefined lets treesitter @keyword.* groups handle
--- differentiation consistently across TypeScript and C#.
+-- @lsp.type.keyword intentionally not defined — OmniSharp sends all C# keywords
+-- under one flat type, which would collapse return/async/using to amber and
+-- override treesitter. Leaving it undefined lets @keyword.* handle differentiation.
 hi("@lsp.type.string",     { link = "String" })
 hi("@lsp.type.number",     { link = "Number" })
 hi("@lsp.type.operator",   { link = "Operator" })
-hi("@lsp.mod.readonly",    { fg = p.variable })     -- keep same as variable, not starlight
+hi("@lsp.mod.readonly",    { fg = p.variable })
 hi("@lsp.mod.deprecated",  { fg = p.comment, strikethrough = true })
 
 -- ── Indent blankline ───────────────────────────────────────────────────────
