@@ -33,16 +33,6 @@ return {
     end,
   },
 
-  -- Project Hail Mary (custom) — deep space + Astrophage amber + Rocky cyan
-  {
-    name = "hail-mary",
-    dir = vim.fn.stdpath("config"),  -- not a plugin; just triggers colorscheme load
-    priority = 1002,
-    config = function()
-      vim.cmd.colorscheme("hail-mary")
-    end,
-  },
-
   -- Everforest (green, easy on eyes) — :colorscheme everforest
   {
     "sainnhe/everforest",
