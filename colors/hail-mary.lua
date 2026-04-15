@@ -288,7 +288,10 @@ hi("@lsp.typemod.parameter.declaration",    { fg = p.variable })
 hi("@lsp.typemod.property.declaration",     { fg = p.variable })
 
 -- Other
-hi("@lsp.type.keyword",    { link = "Keyword" })
+-- @lsp.type.keyword intentionally not defined — OmniSharp (C#) sends all
+-- keywords under one flat type, which would collapse return/async/using etc.
+-- to amber. Leaving it undefined lets treesitter @keyword.* groups handle
+-- differentiation consistently across TypeScript and C#.
 hi("@lsp.type.string",     { link = "String" })
 hi("@lsp.type.number",     { link = "Number" })
 hi("@lsp.type.operator",   { link = "Operator" })
