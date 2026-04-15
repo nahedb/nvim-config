@@ -143,10 +143,10 @@ hi("Include",       { fg = p.nebula })
 hi("Define",        { fg = p.nebula })
 hi("Macro",         { fg = p.nebula })
 hi("PreCondit",     { fg = p.nebula })
-hi("Type",          { fg = p.nebula })
+hi("Type",          { fg = p.rocky })
 hi("StorageClass",  { fg = p.astrophage })
-hi("Structure",     { fg = p.nebula })
-hi("Typedef",       { fg = p.nebula })
+hi("Structure",     { fg = p.rocky })
+hi("Typedef",       { fg = p.rocky })
 hi("Special",       { fg = p.teal })
 hi("SpecialChar",   { fg = p.teal })
 hi("Tag",           { fg = p.rocky })
@@ -246,8 +246,8 @@ hi("@float",               { link = "Float" })
 hi("@boolean",             { link = "Boolean" })
 hi("@constant",            { fg = p.starlight })
 hi("@constant.builtin",    { fg = p.starlight, bold = true })
-hi("@type",                { link = "Type" })
-hi("@type.builtin",        { fg = p.nebula, italic = true })
+hi("@type",                { fg = p.rocky })
+hi("@type.builtin",        { fg = p.rocky, italic = true })
 hi("@namespace",           { fg = p.nebula })
 hi("@module",              { fg = p.nebula })
 hi("@property",            { fg = p.fg })
@@ -261,15 +261,15 @@ hi("@operator",            { link = "Operator" })
 hi("@constructor",         { fg = p.nebula })
 
 -- ── LSP semantic tokens ────────────────────────────────────────────────────
--- Types
-hi("@lsp.type.class",          { link = "Type" })
-hi("@lsp.type.type",           { link = "Type" })   -- type aliases: `type Foo = ...`
-hi("@lsp.type.typeParameter",  { link = "Type" })   -- generics: <T>
-hi("@lsp.type.interface",      { fg = p.teal })
+-- Types — all type identifiers (imports, references, declarations) use cyan
+hi("@lsp.type.class",          { fg = p.rocky })
+hi("@lsp.type.type",           { fg = p.rocky })   -- type aliases: `type Foo = ...`
+hi("@lsp.type.typeParameter",  { fg = p.rocky })   -- generics: <T>
+hi("@lsp.type.interface",      { fg = p.rocky })
+hi("@lsp.type.struct",         { fg = p.rocky })
 hi("@lsp.type.enum",           { fg = p.nebula })
 hi("@lsp.type.enumMember",     { fg = p.starlight })
 hi("@lsp.type.namespace",      { fg = p.nebula })
-hi("@lsp.type.struct",         { link = "Type" })
 
 -- Functions / methods
 hi("@lsp.type.function",   { link = "Function" })
