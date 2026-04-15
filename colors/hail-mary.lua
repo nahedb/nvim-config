@@ -1,10 +1,11 @@
 -- Project Hail Mary colorscheme for Neovim
 -- Inspired by Andy Weir's "Project Hail Mary"
 --   Background: deep space black-blue
---   Astrophage:  amber/gold  — keywords, booleans
---   Rocky:       cyan/teal   — functions, methods
+--   Astrophage:  amber/gold  — control flow keywords (if/for/while/switch)
+--   Rocky:       cyan/teal   — functions, methods, function keywords (function/async/await)
+--   Grace:       coral/rose  — return, throw, yield  (Ryland trying to get home)
 --   Earth:       soft green  — strings
---   Nebula:      purple      — types, classes
+--   Nebula:      purple      — types, classes, import/export
 --   Starlight:   warm orange — numbers, constants
 
 local p = {
@@ -38,6 +39,9 @@ local p = {
 
   -- Starlight (orange) — numbers/constants
   starlight = "#ffb74d",
+
+  -- Grace (coral/rose) — return, throw, yield  (trying to get home)
+  grace = "#f28b82",
 
   -- Teal — operators
   teal = "#80cbc4",
@@ -215,11 +219,15 @@ hi("WhichKeyFloat", { bg = p.bg1 })
 
 -- ── Treesitter ─────────────────────────────────────────────────────────────
 hi("@comment",             { link = "Comment" })
-hi("@keyword",             { link = "Keyword" })
-hi("@keyword.function",    { fg = p.astrophage, bold = true })
-hi("@keyword.return",      { fg = p.astrophage, bold = true })
-hi("@keyword.operator",    { fg = p.teal })
-hi("@keyword.import",      { fg = p.nebula })
+hi("@keyword",             { link = "Keyword" })           -- amber: const/let/var + fallback
+hi("@keyword.conditional", { fg = p.astrophage })           -- amber: if/else/switch/case
+hi("@keyword.repeat",      { fg = p.astrophage })           -- amber: for/while/do
+hi("@keyword.function",    { fg = p.rocky, bold = true })   -- cyan:  function/async
+hi("@keyword.coroutine",   { fg = p.rocky })                -- cyan:  await (some parsers)
+hi("@keyword.return",      { fg = p.grace, bold = true })   -- coral: return
+hi("@keyword.exception",   { fg = p.grace })                -- coral: throw/try/catch
+hi("@keyword.operator",    { fg = p.teal })                 -- teal:  typeof/instanceof/in
+hi("@keyword.import",      { fg = p.nebula })               -- purple: import/export/from
 hi("@function",            { link = "Function" })
 hi("@function.builtin",    { fg = p.rocky, italic = true })
 hi("@function.method",     { fg = p.rocky })
@@ -314,5 +322,5 @@ hi("BlinkCmpKindVariable",    { fg = p.fg })
 hi("BlinkCmpKindText",        { fg = p.earth })
 hi("BlinkCmpKindSnippet",     { fg = p.starlight })
 
--- expose palette for lualine (loaded after colorscheme)
+-- expose palette for other modules (lualine, etc.)
 vim.g.hail_mary_palette = p
